@@ -1,4 +1,4 @@
-myRander 1.15
+myRander 1.25
 
 Information zum Tool
 --------------------------
