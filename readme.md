@@ -1,15 +1,3 @@
-myRander 1.25
+# crop tool
 
-Information zum Tool
---------------------------
-Dieses Tool fuegt im Menue Tools einen eintrag hinzu (myrander), mit dem es moeglich ist, die Media-Box auf Grund der Trim-Box zu beschneiden.
-
-
-Installation
---------------------------
-Das Java-File (*.js) muss sich beim start des Acrobats im Ordner "JavaScripts" befinden. Dieser Ortner liegt im Acrobat-Hauptverzeichnis.
-
-
-Stefan Huber
-compiled.dreams
-huber_stefan@gmx.net
+This tool adds an entry in the File menu (crop) that allows you to crop the Crop Media-Box based on the Trim-Box.
