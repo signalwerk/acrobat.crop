@@ -2,16 +2,11 @@
 //   MIT License
 //   Signalwerk GmbH
 
-
 function cropInfo() {
   this.name = "crop";
-  this.version = 1.3;
+  this.version = 1.6;
   this.mainMenue = this.name + " " + this.version;
-  this.info =
-    this.name +
-    " " +
-    this.version +
-    " || Signalwerk GmbH";
+  this.info = this.name + " " + this.version + " || Signalwerk GmbH";
 }
 
 function replaceAll(str, from, to) {
@@ -37,37 +32,37 @@ var myRander = new cropInfo();
 app.addSubMenu({ cName: myRander.mainMenue, cParent: "File" });
 
 app.addMenuItem({
-  cName: "Crop Trim-Box + 0 mm",
+  cName: "Media-Box = Trim-Box + Border 0 mm",
   cParent: myRander.mainMenue,
   cExec: "app.alert(cropBorder(0), 3);"
 });
 
 app.addMenuItem({
-  cName: "Crop Trim-Box + 15 mm",
+  cName: "Media-Box = Trim-Box + Border 15 mm",
   cParent: myRander.mainMenue,
   cExec: "app.alert(cropBorder(mm2pt(15)), 3);"
 });
 
 app.addMenuItem({
-  cName: "Crop Trim-Box + other...",
+  cName: "Media-Box = Trim-Box + Border other...",
   cParent: myRander.mainMenue,
   cExec: "app.alert(cropBorder(undefined), 3);"
 });
 
 app.addMenuItem({
-  cName: "Crop Trim-Box to A4",
+  cName: "Media-Box = Trim-Box extended to A4",
   cParent: myRander.mainMenue,
   cExec: "app.alert(cropFormat(mm2pt(210), mm2pt(297)), 3);"
 });
 
 app.addMenuItem({
-  cName: "Crop Trim-Box to A3",
+  cName: "Media-Box = Trim-Box extended to A3",
   cParent: myRander.mainMenue,
   cExec: "app.alert(cropFormat(mm2pt(297), mm2pt(420)), 3);"
 });
 
 app.addMenuItem({
-  cName: "Crop Trim-Box to other...",
+  cName: "Media-Box = Trim-Box extended to other...",
   cParent: myRander.mainMenue,
   cExec: "app.alert(cropFormat(undefined, undefined), 3);"
 });
@@ -86,10 +81,10 @@ app.addMenuItem({
 
 function istZahl(s) {
   if (s != undefined && s != NaN) {
-    // ermöglicht Komma-Eingabe
+    // replace comma with point
     s = replaceAll(s + "", ",", ".");
 
-    // Zahldefinition
+    // is it a number
     var regExpZahl = /^((\d+(\.)?(\d)*))$/;
 
     if (regExpZahl.test(s) == true) {
@@ -189,9 +184,7 @@ function killBox() {
   var numPagDoc = this.numPages;
 
   for (i = 0; i < numPagDoc; i++) {
-
-    // Boxen löschen
-    //------------------------------------------------------
+    // revmove boxes
     var aRectNewBleed = this.setPageBoxes("Bleed", i, i);
     var aRectNewTrim = this.setPageBoxes("Trim", i, i);
     var aRectNewBBox = this.setPageBoxes("Art", i, i);
